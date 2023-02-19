@@ -7,19 +7,26 @@
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <title>Document</title>
+    <title>React First Try</title>
 </head>
 <body>
     <div id="root"></div>
-    <script>
+    <script type="text/babel">
         
+        // Babel -> convert JS to JSX
         // ReactJS 18 -> ReactDOM
-        const h1React = React.createElement('ul',null,
-            React.createElement('li',null,"Javascript"),
-            React.createElement('li',null,"ReactJs")
-        )
+        // const h1React = React.createElement('ul',null,
+        // React.createElement('li',null,"Javascript"),
+        // React.createElement('li',null,"ReactJs")
+        // )
+        // ReactJS -> Using JSX to create React Element
+        const ul = <ul> 
+                <li>Javascript</li>
+                <li>ReactJS</li>
+            </ul>
+        
         const root = document.getElementById('root')
-        ReactDOM.render(h1React,root);
+        ReactDOM.render(ul,root);
 
     </script>
 </body>
