@@ -315,32 +315,36 @@ const courses = [
   },
 ];
 
-// CourseItem
-function CourseItem({ course }) {
-  return (
-    <div className="post-item">
-      <h2>{course.title}</h2>
-      <img src={course.image_url} alt="" />
-      <p>{course.description}</p>
-      <p>{course.published_at}</p>
-    </div>
-  );
-}
 
-function App(props) {
-  const handleClick = (course)=> {
-    console.log('ấdasd');
-    alert(course.title)
+function App() {
+  
+  const Form = {
+    Input() {
+      return (
+        <input type="text" />
+      )
+    },
+    CheckBox(){
+      return (
+        <input type="checkbox" name="checkbox" id="" />
+      )
+    }
   }
+
+  function Button({title, href, onClick}){
+      return (
+        <button>{title}</button>
+      )
+  }
+
   return (
     <div className="wrapper">
-      {courses.map((course) => (
-        <CourseItem key={course.id} 
-        onClick={()=> handleClick(course)}
-        course={course} 
-         />
-      ))}
-      
+      <Component/>
+      <Button 
+      title="Click Me!"
+      href="http://google.com"
+      onClick={()=> console.log(Math.random())}
+      />
     </div>
   );
 }
