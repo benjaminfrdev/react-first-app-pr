@@ -331,20 +331,40 @@ function App() {
     }
   }
 
-  function Button({title, href, onClick}){
-      return (
-        <button>{title}</button>
-      )
+  function Input({label,...inputProps}){
+    return (
+      <div>
+        <label htmlFor="">{label}</label><br></br>
+        <input {...inputProps} />
+      </div>
+    )
   }
 
+  function Button({title,primary}){
+      console.log(primary);
+      return (
+        <button>{title}</button>
+        )
+  }
+
+  // Render props
+
+  function List({data, children}){
+    return (
+      <ul>
+        {data.map(children)}
+      </ul>
+    )
+  }
+  const cars =['BMW', 'Honda', 'Mazda']
   return (
     <div className="wrapper">
-      <Component/>
-      <Button 
-      title="Click Me!"
-      href="http://google.com"
-      onClick={()=> console.log(Math.random())}
-      />
+        <List
+        data={cars}
+        >
+          {(item,index) => <li key={index}>{item}</li>}
+        </List>
+
     </div>
   );
 }
